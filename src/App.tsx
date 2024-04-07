@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import TrackList from "./components/TrackList";
+import { MusicPlayerProvider } from "./contexts/MusicPlayerContext";
+import { Container } from "@mui/material";
+import "./App.css";
+import Controller from "./components/Controller";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MusicPlayerProvider>
+      <Container
+        sx={{
+          height: "600px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-around",
+          bgcolor: "#80D4FF",
+          borderRadius: 10,
+          py: 3,
+        }}
+      >
+        <TrackList />
+        <Controller />
+      </Container>
+    </MusicPlayerProvider>
   );
 }
 
